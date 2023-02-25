@@ -1,6 +1,6 @@
 package com.example.artgallery.data.models
 
-data class Arts(
+data class Movies(
     val _links: Links,
     val averageRuntime: Int,
     val dvdCountry: Any,

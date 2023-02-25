@@ -3,6 +3,7 @@ package com.example.artgallery
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
 import com.example.artgallery.navigation.SetupNavHost
 import com.example.artgallery.ui.theme.ArtGalleryTheme
@@ -15,9 +16,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             ArtGalleryTheme {
                 val navController = rememberNavController()
-                SetupNavHost(navController = navController)
-
-
+                val viewModel = hiltViewModel<MainViewModel>()
+                SetupNavHost(navController = navController, viewModel = viewModel)
             }
         }
     }

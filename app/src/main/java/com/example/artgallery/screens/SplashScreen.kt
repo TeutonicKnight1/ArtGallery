@@ -14,13 +14,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.artgallery.MainViewModel
 import com.example.artgallery.R
 import com.example.artgallery.navigation.Screens
 import com.example.artgallery.ui.theme.ArtGalleryTheme
 import kotlinx.coroutines.delay
 
 @Composable
-fun SplashScreen(navController: NavController) {
+fun SplashScreen(navController: NavController, viewModel: MainViewModel) {
     var startAnimate by remember {
         mutableStateOf(false)
     }
@@ -30,6 +31,7 @@ fun SplashScreen(navController: NavController) {
     )
     LaunchedEffect(key1 = true) {
         startAnimate = true
+        viewModel.getAllArts()
         delay(4000)
         navController.navigate(Screens.Main.route)
     }
