@@ -23,7 +23,6 @@ class MainViewModel @Inject constructor(private val repository: ApiRepository): 
             repository.getAllArts().let {
                 if (it.isSuccessful) {
                     _allArts.postValue(it.body())
-                    Log.d("checkData", "load arts: ${it.code()} ${it.body().toString()}")
                 }
                 else {
                     Log.d("checkData", "Failed to load arts: ${it.errorBody()} ${it.code()}")
