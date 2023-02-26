@@ -11,7 +11,6 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -20,7 +19,6 @@ import coil.compose.rememberAsyncImagePainter
 import com.example.artgallery.MainViewModel
 import com.example.artgallery.data.models.Movies
 import com.example.artgallery.navigation.Screens
-import com.example.artgallery.utils.Constants
 
 @Composable
 fun MainScreen(navController: NavController, viewModel: MainViewModel) {
@@ -33,7 +31,7 @@ fun MainScreen(navController: NavController, viewModel: MainViewModel) {
             modifier = Modifier
                 .padding(15.dp)
         ) {
-            items(allArts.take(10)) {item ->
+            items(allArts) {item ->
                 ArtCard(item = item, navController = navController)
             }
         }
